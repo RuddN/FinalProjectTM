@@ -1,5 +1,5 @@
 Starter[] clds=new Starter[25];
-Starter[] tubes=new Starter[3];
+Starter tubes[]=new Starter[4];
 Starter birdo=new Starter();
 boolean playing = false;
 PImage bird, tube;
@@ -10,7 +10,7 @@ void setup(){
      clds[i]=new Starter();
   }
   for(int i=0; i<tubes.length; i++){
-     tubes[i]=new Starter();
+     tubes[i]=new Starter(i);
   }
   bird = loadImage("birdo.PNG");
   tube = loadImage("obstacle.png");
@@ -18,15 +18,18 @@ void setup(){
 
 void draw(){
   background(#57D3F6);
+  fill(255,255,130);
+  ellipse(100,100,75,75);
   for (int i=0; i<clds.length; i++){
     clds[i].showCloud();
     clds[i].moveCloud();
   }
   birdo.showBird();
   birdo.moveBird();
-  tubes[0].showTube();
-  fill(255,255,130);
-  ellipse(100,100,75,75);
+  for (int i=0; i<tubes.length; i++){
+    tubes[i].showTube();
+    tubes[i].moveTube();
+  }
   fill(68, 153, 94);
   rect(0,340,600,400);
 }
@@ -37,6 +40,8 @@ public class Starter{
   private int csize;
   private int bx, by;
   private int bspeed;
+  private int tx, ty;
+  private int tdelay;
   
   public Starter(){
     cx=600;
@@ -46,6 +51,22 @@ public class Starter{
     bx=150;
     by=125;
     bspeed=2;
+    tx=600;
+    ty=(int)(Math.random()*(-300 - -500)-500);
+    tdelay=0;
+  }
+  
+  public Starter(int delay){
+    cx=600;
+    cy=(int)(Math.random()*250+5);
+    cspeed=(int)(Math.random()*20+1);
+    csize=(int)(Math.random()*60+10);
+    bx=150;
+    by=125;
+    bspeed=2;
+    tx=600;
+    ty=(int)(Math.random()*(-300 - -500)-500);
+    tdelay=delay*200;;
   }
   
   void showCloud() {
@@ -81,16 +102,14 @@ public class Starter{
   }
   
   void showTube() {
-    image(tube, 500, -300);
+    image(tube, tx+tdelay, ty);
   }
   
   void moveTube() {
-    cx-=cspeed;
-    if (cx+csize<-1){
-      cx=600;
-      cy=(int)(Math.random()*250+5);
-      cspeed=(int)(Math.random()*20+2);
-      csize=(int)(Math.random()*60+10);
+    tx-=5;
+    if (tx<-100-tdelay){
+      tx=600;
+      ty=(int)(Math.random()*(-300 - -400)-400);
     }
   }
 }
