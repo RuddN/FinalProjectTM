@@ -1,8 +1,11 @@
 Starter[] clds=new Starter[25];
-Obstacle tubes[]=new Obstacle[4];
+Obstacle[] tubes=new Obstacle[4];
+int[] xs=new int[4];
+int[] ys=new int[4];
+int[] spaces=new int[4];
 Bird birdo=new Bird();
 boolean playing = false;
-PImage bird, tube;
+PImage bird, top, bottom;
 
 void setup(){
   size(600,400);
@@ -13,11 +16,11 @@ void setup(){
      tubes[i]=new Obstacle(i);
   }
   bird = loadImage("birdo.PNG");
-  tube = loadImage("obstacle.png");
+  top = loadImage("top.png");
+  bottom = loadImage("bottom.png");
 }
 
 void update(){
-  
 }
 
 void draw(){
@@ -34,6 +37,7 @@ void draw(){
     tubes[i].showTube();
     tubes[i].moveTube();
   }
+  birdo.printLoss();
   fill(68, 153, 94);
   rect(0,340,600,400);
 }
