@@ -1,10 +1,8 @@
 Starter[] clds=new Starter[25];
 Obstacle[] tubes=new Obstacle[4];
-int[] xs=new int[4];
-int[] ys=new int[4];
 int[] spaces=new int[4];
 Bird birdo=new Bird();
-boolean playing = false;
+boolean playing = true;
 PImage bird, top, bottom;
 
 void setup(){
@@ -20,26 +18,44 @@ void setup(){
   bottom = loadImage("bottom.png");
 }
 
-void update(){
-}
-
 void draw(){
   background(#57D3F6);
   fill(255,255,130);
   ellipse(100,100,75,75);
+  
   for (int i=0; i<clds.length; i++){
     clds[i].showCloud();
     clds[i].moveCloud();
   }
-  birdo.showBird();
-  birdo.moveBird();
+  
+  if(playing){
+    birdo.showBird();
+    birdo.moveBird();
+  }
+  
   for (int i=0; i<tubes.length; i++){
     tubes[i].showTube();
     tubes[i].moveTube();
   }
-  birdo.printLoss();
+  
+  for(int i=0; i<tubes.length; i++){
+     if (((tubes[i].getX()+68)==birdo.getX())&&(((tubes[i].getY()+420)>=birdo.getY()+25)||((tubes[i].getY()+420+tubes[i].getSpace())<=birdo.getY()+25))){
+         playing=false;
+         System.out.println("running");
+     }
+  }
+  if(birdo.getY()>=height-25){
+     playing=false;
+  } 
+  
   fill(68, 153, 94);
   rect(0,340,600,400);
+  
+  if(playing==false){
+     fill(68, 153, 94);
+     textSize(100);
+     text("You Lose!", 75, 200);
+  }
 }
 
 public class Starter{

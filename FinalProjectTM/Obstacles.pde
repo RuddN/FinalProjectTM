@@ -8,10 +8,6 @@ public class Obstacle{
       tx=600+(300*num);
       ty=(int)(Math.random()*(-290 - -390) - 390);
       spacing=(int)(Math.random()*(610-575)+575);
-      inc=num;
-      xs[inc]=tx;
-      ys[inc]=ty;
-      spaces[inc]=spacing;
   }
   
   void showTube() {
@@ -25,9 +21,18 @@ public class Obstacle{
       tx+=1200;
       ty=(int)(Math.random()*(-290 - -390) - 390);
       spacing=(int)(Math.random()*(610-575)+575);
-      xs[inc]=tx;
-      ys[inc]=ty;
-      spaces[inc]=spacing;
     }
+  }
+  
+  int getX(){
+    return tx;
+  }
+  
+  int getY(){
+    return ty;
+  }
+
+  int getSpace(){
+    return spacing;
   }
 }
