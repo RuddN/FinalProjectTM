@@ -24,15 +24,19 @@ public class Obstacle{
     }
   }
   
-  int getX(){
+  int getX1(){
     return tx;
   }
   
-  int getY(){
-    return ty;
+  int getX2(){
+    return tx+68;
   }
-
-  int getSpace(){
-    return spacing;
+  
+  int getTopY(){
+    return ty+420;
+  }
+  
+   int getBotY(){
+    return ty+spacing;
   }
 }

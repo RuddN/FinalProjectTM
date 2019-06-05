@@ -12,13 +12,16 @@ public class Bird{
   
   void moveBird(){
     if(!mousePressed && by < height-25)
-      by += 5;
+      by += 7;
     else if(by >= 25 && by <= 320)
-      by -= 9;
+      by -= 11;
   }
   
-  int getX(){
+  int getX1(){
     return bx;
+  }
+  int getX2(){
+    return bx+30;
   }
   
   int getY(){

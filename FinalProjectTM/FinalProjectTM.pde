@@ -4,6 +4,7 @@ int[] spaces=new int[4];
 Bird birdo=new Bird();
 boolean playing = true;
 PImage bird, top, bottom;
+int score;
 
 void setup(){
   size(600,400);
@@ -39,9 +40,18 @@ void draw(){
   }
   
   for(int i=0; i<tubes.length; i++){
-     if (((tubes[i].getX()+68)==birdo.getX())&&(((tubes[i].getY()+420)>=birdo.getY()+25)||((tubes[i].getY()+420+tubes[i].getSpace())<=birdo.getY()+25))){
+     if ((
+     ( 
+     (tubes[i].getX1()) <= (birdo.getX1()) || (tubes[i].getX1()) <= (birdo.getX2()))
+     &&( 
+     ((tubes[i].getX2()) >= (birdo.getX1()))||((tubes[i].getX2()) >= (birdo.getX2())))
+     )
+     && ((((tubes[i].getTopY())>=birdo.getY()))
+     ||((tubes[i].getBotY())<=birdo.getY()))){
          playing=false;
-         System.out.println("running");
+         System.out.println("running1");
+     }else if((((tubes[i].getX1())==birdo.getX1())) && playing){
+       score+=1;
      }
   }
   if(birdo.getY()>=height-25){
@@ -55,7 +65,14 @@ void draw(){
      fill(68, 153, 94);
      textSize(100);
      text("You Lose!", 75, 200);
+     fill(255,255,255);
+     textSize(75);
+     text("Score:" + score, 160, 320);
+  } else if (playing) {
+    textSize(40);
+    text(score, 530, 50);
   }
+  
 }
 
 public class Starter{
