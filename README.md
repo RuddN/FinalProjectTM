@@ -31,3 +31,6 @@ This is the code described above. It determines when you lose the game or earn a
 ## Acknowledgments
 * Credit to the Flappy Bird game for the tube and bird graphics used
 * Thanks to Virinch and Miles for their help debugging parts of the code. c:
+
+Also...
+Thanks Dr. R for teaching me to code! This class has been a blast, and I've greatly enjoyed the material. A lot of that is because of your teaching style and the format of classes. This last project was a great way to finish off the year, and since I didn't get to say it today, thanks for everything and have a great summer. ~Nyah
