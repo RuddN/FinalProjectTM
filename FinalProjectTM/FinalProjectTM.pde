@@ -49,8 +49,7 @@ void draw(){
      && ((((tubes[i].getTopY())>=birdo.getY()))
      ||((tubes[i].getBotY())<=birdo.getY()))){
          playing=false;
-         System.out.println("running1");
-     }else if((((tubes[i].getX1())==birdo.getX1())) && playing){
+     }else if((((tubes[i].getX2())==birdo.getX1())) && playing){
        score+=1;
      }
   }
