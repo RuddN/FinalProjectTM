@@ -19,7 +19,7 @@ for(int i=0; i<tubes.length; i++){
      }
   }
 ```
-~This is the code described above. It determines when you lose the game or earn a point depending on whether the bird overlaps with the tube obstacle. It utilizes methods from the bird and obstacle classes to get the x bounds for the tubes and birds, as well as their Y values and compares them using boolean operators to decide whether the two images overlap, and does this for every obstacle object in the game. If the two images do overlap, the playing variable becomes false, leading to the display of a losing screen. When the images don't overlap and you make it past the far edge of a tube, your score increments by one point.~
+This is the code described above. It determines when you lose the game or earn a point depending on whether the bird overlaps with the tube obstacle. It utilizes methods from the bird and obstacle classes to get the x bounds for the tubes and birds, as well as their Y values and compares them using boolean operators to decide whether the two images overlap, and does this for every obstacle object in the game. If the two images do overlap, the playing variable becomes false, leading to the display of a losing screen. When the images don't overlap and you make it past the far edge of a tube, your score increments by one point.
 
 ## Built With
 
